@@ -3,7 +3,7 @@
 - tdpos 共识算法  
     
 - struct  
-    type tdposConsensus struct // 实现共识框架ConsensusImplInterface接口  
+    **type tdposConsensus struct** // 实现共识框架ConsensusImplInterface接口  
     
     * func (tp *tdposConsensus) CompeteMaster(height int64) (bool, bool, error)  
     * func (tp *tdposConsensus) CalculateBlock(block cctx.BlockInterface) error  
@@ -25,7 +25,7 @@
     * func (tp *tdposConsensus) isAuthAddress(candidate string, initiator string, authRequire []string) bool  
     * func (tp *tdposConsensus) needSync() bool
        
-    type TdposStatus struct   // 实现了ConsensusStatus接  
+    **type TdposStatus struct**   // 实现了ConsensusStatus接  
     
     * func (t *TdposStatus) GetVersion() int64  
     * func (t *TdposStatus) GetConsensusBeginInfo()  
@@ -35,7 +35,7 @@
     * func (t *TdposStatus) GetCurrentValidatorsInfo() []byte
     * func (t *TdposStatus) getTdposInfos() string
     
-    type tdposSchedule struct // 实现了ProposerElectionInterface接口  
+    **type tdposSchedule struct** // 实现了ProposerElectionInterface接口  
     
     * func (s *tdposSchedule) minerScheduling(timestamp int64) (term int64, pos int64, blockPos int64) 
     * func (s *tdposSchedule) getSnapshotKey(height int64, bucket string, key []byte) ([]byte, error)  
