@@ -1,4 +1,4 @@
-# go与rust的学习笔记
+# go 与 rust
 
 ## 语法基础  
 go与rust的语法基础。  
