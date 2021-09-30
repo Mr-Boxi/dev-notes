@@ -1,6 +1,9 @@
-### xmodel
-xumodel 模型
+# xmodel 存储模型
+目录:
+- xmodel 结构体
+- 
 
+### XModel结构体
 **type XModel struct**
 ```
 // XModel xmodel data structure
@@ -17,4 +20,26 @@ type XModel struct {
 	extUtxoCache sync.Map // map[string]*LRUCache
 } 
 ```
+```
+type XMIterator struct {
+	bucket string
+	iter   kvdb.Iterator
+	model  *XModel
+	value  *kledger.VersionedData
+	err    error
+}
+```
 
+```
+type xModSnapshot struct {
+	xmod      *XModel
+	logger    logs.Logger
+	blkHeight int64
+	blkId     []byte
+}
+```
+```
+type xMSnapshotReader struct {
+	xMReader kledger.XMReader
+} 
+```
