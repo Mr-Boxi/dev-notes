@@ -1,12 +1,19 @@
 ## asyncwoker模块  
 xuperos/asyncwoker  
-异步任务模块  
+异步任务模块  结合公共模块接口阅读
 
 目录：  
-    异步任务接口       AsyncWorker  
-    异步任务接口实现    AsyncWorkerImpl  
-    任务上下文接口实现  TaskContextImpl  //实现common.TaskContext 接口   
-        
+- asyncworker_impl.go  
+    定义异步任务结构体
+    * type AsyncWorkerImpl struct
+- context.go  
+    定义任务上下文结构体
+    * type TaskContextImpl struct
+- interface.go  
+    定义异步任务接口
+    * type AsyncWorker interface
+
+### 结构体如下      
 **type AsyncWorker interface**  
 ```
 type AsyncWorker interface {

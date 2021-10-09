@@ -1,5 +1,5 @@
 ## 矿工模块
-
+定义矿工结构体，字段是 链上下文
 **type Miner struct**   //负责生产和同步区块 
 ```
 type Miner struct {
