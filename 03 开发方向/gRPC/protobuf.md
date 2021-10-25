@@ -21,7 +21,7 @@ https://blog.csdn.net/Awesomewan/article/details/106207763
     
     cd protobuf
     
-    git tag v3。7.1
+    git tag v3.7.1
     
     ./autogen.sh
     
@@ -47,6 +47,10 @@ https://blog.csdn.net/Awesomewan/article/details/106207763
 
 ### 2 编写proto文件    
     ...
+    syntax = "proto3";
+    option go_package = "github.com/superconsensus-chain/xupercore/protos"; 
+    package protos;
+    
 ### 3 编译
     protoc --go_out=plugins=grpc:. ./*.proto
     // --go_out=plugins=grpc:.  输出到当前目录
