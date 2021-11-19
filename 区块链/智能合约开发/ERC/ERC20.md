@@ -20,3 +20,5 @@ contract ERC20 {
 
 
 https://mp.weixin.qq.com/s/foM1QWvsqGTdHxHTmjczsw
+
+https://github.com/Giveth/minime/blob/master/contracts/MiniMeToken.sol
