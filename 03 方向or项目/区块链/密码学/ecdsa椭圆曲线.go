@@ -12,9 +12,9 @@ import (
 
 /// 椭圆曲线加密
 // 生成密钥对
-func GenerateEccKey()  {
+func GenerateEccKey() {
 	// 1.使用ecdsa生成密钥对
-	privateKey, err := ecdsa.GenerateKey(elliptic.P224(),rand.Reader)
+	privateKey, err := ecdsa.GenerateKey(elliptic.P224(), rand.Reader)
 	if err != nil {
 		panic(err)
 	}
@@ -27,7 +27,7 @@ func GenerateEccKey()  {
 	}
 	// -将字符串写入pem.Block结构体中
 	block := pem.Block{
-		Type: "ecc private key",
+		Type:  "ecc private key",
 		Bytes: derText,
 	}
 
@@ -38,7 +38,6 @@ func GenerateEccKey()  {
 	}
 	pem.Encode(file, &block)
 	file.Close()
-
 
 	// 3.将公钥写入字符串
 	// -从私钥中得到公钥
@@ -52,7 +51,7 @@ func GenerateEccKey()  {
 
 	// -将字符串写入pem.Block结构体中
 	pubblock := pem.Block{
-		Type: "ecc public key",
+		Type:  "ecc public key",
 		Bytes: pubText,
 	}
 
@@ -93,7 +92,7 @@ func ECCSignature(data []byte) (rText, sText []byte) {
 	hashText := sha1.Sum(data)
 
 	// 5.进行数字签名
-	r,s, err := ecdsa.Sign(rand.Reader,privateKey,hashText[:])
+	r, s, err := ecdsa.Sign(rand.Reader, privateKey, hashText[:])
 	if err != nil {
 		panic(err)
 	}
@@ -104,10 +103,10 @@ func ECCSignature(data []byte) (rText, sText []byte) {
 		panic(err)
 	}
 	sText, err = s.MarshalText()
-	if err !=  nil {
+	if err != nil {
 		panic(err)
 	}
-    return
+	return
 }
 
 // ECC 验证
@@ -116,6 +115,6 @@ func ECCVerify(plainText, rText, sText []byte, pubFile string) bool {
 	return true
 }
 
-func main()  {
+func main() {
 	GenerateEccKey()
 }
