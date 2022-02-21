@@ -33,3 +33,6 @@ function 函数名(参数)  public|private|internal|external  pure|view|constant
 
 // 关键字
 https://blog.csdn.net/qq624202120/article/details/107272084?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.no_search_link&utm_relevant_index=3
+
+// 例子 
+https://solidity-by-example.org/sending-ether/
