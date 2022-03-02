@@ -36,3 +36,7 @@ https://blog.csdn.net/qq624202120/article/details/107272084?spm=1001.2101.3001.6
 
 // 例子 
 https://solidity-by-example.org/sending-ether/
+
+//  智能合约设计中的安全设计模式
+
+https://willzhuang.github.io/2019/06/10/%E5%85%B3%E4%BA%8E%E4%BB%A5%E5%A4%AA%E5%9D%8A%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E7%9A%84%E6%96%B0%E8%AE%A4%E7%9F%A5/
