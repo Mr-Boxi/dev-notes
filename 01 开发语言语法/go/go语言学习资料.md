@@ -8,3 +8,7 @@ https://github.com/chai2010/go2-book
 
 cgo:
 https://books.studygolang.com/advanced-go-programming-book/
+
+https://segmentfault.com/q/1010000023319314
+
+https://segmentfault.com/a/1190000022255009#item-3-4
