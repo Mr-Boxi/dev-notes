@@ -9,3 +9,9 @@ https://docs.cosmos.network/
 
 有方法有步骤，就是慢慢来，一点一点阅读完文档，按照文档练习就可以。
 看文档估计需要一周，练习需要一周。
+
+// all in one solution
+https://docs.starport.com/
+
+// 练习：
+https://tutorials.cosmos.network/academy/4-my-own-chain/starport.html
