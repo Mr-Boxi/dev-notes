@@ -1,1 +1,0 @@
-# go的slice与rust的vec
