@@ -5,9 +5,7 @@
     rust-analyzer
     Tabnine AI
 
-资料：
-
-https://rustwiki.org/
+2. https://rustwiki.org/
 
 // 重点练习
 https://rustwiki.org/zh-CN/rust-by-example/
