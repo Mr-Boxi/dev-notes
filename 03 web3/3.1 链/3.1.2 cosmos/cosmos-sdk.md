@@ -15,3 +15,16 @@ https://docs.starport.com/
 
 // 练习：
 https://tutorials.cosmos.network/academy/4-my-own-chain/starport.html
+
+# cosmos-sdk tools
+在链中启用合约
+- Agoric Swingset  [js]
+- CosmWasm         [rust]
+- Ethermint        [solidity]
+
+
+## cosmwasm
+文档：https://docs.cosmwasm.com/docs/1.0/
+
+## ethermint
+文档：https://docs.ethermint.zone/
