@@ -26,5 +26,22 @@ https://tutorials.cosmos.network/academy/4-my-own-chain/starport.html
 ## cosmwasm
 文档：https://docs.cosmwasm.com/docs/1.0/
 
+```
+ |  sdk   | ---- |    dll/so | --- |    vm     |
+ | x/wasm | --- |wasmvm[cgo]| --- |cosmwasm[vm]|
+
+```
+
 ## ethermint
 文档：https://docs.ethermint.zone/
+
+## evmos
+文档： https://evmos.dev/intro/overview.html
+
+
+## 设想
+
+secret network 是改写了cosmwasmvm--> sgx-vm
+ehermint 将 evm 做成模块放入cosmos-sdk
+
+将evm 放入 sgx-vm 中运行是否可以？

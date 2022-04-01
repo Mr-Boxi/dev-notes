@@ -5,6 +5,13 @@ https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/i
 https://github.com/apache/incubator-teaclave-sgx-sdk/blob/783f04c002e243d1022c5af8a982f9c2a7138f32/dockerfile/Dockerfile.1804.nightly
 https://edp.fortanix.com/docs/installation/guide/
 
+## sgx 的开源项目
+teaclave
+
+libos
+
+occlum
+
 #Contributers
 ### 检查内核是否指出kvm技术
 ```shell script
