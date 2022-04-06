@@ -1,3 +1,35 @@
+# 认识所有权(重点)
+
+rust 的重点
+
+## 所有权规则：
+
+- Rust 中的每一个值都有一个被称为其 **所有者**（*owner*）的变量。
+- 值在任一时刻有且只有一个所有者。
+- 当所有者（变量）离开作用域，这个值将被丢弃
+
+2. 变量与数据的交互方式
+
+(1). 移动（移动语义）
+
+
+
+(2). 克隆（复制语义）
+
+```
+// 实现copy trait - 使变量具有复制语义，默认以下变量系统自动实现
+所有整数类型，比如 u32。
+布尔类型，bool，它的值是 true 和 false。
+所有浮点数类型，比如 f64。
+字符类型，char。
+元组，当且仅当其包含的类型也都实现 Copy 的时候。比如，(i32, i32) 实现了 Copy，但 (i32, String) 就没有
+```
+
+## 借用规则
+
+- 在任意给定时间，**要么** 只能有一个可变引用，**要么** 只能有多个不可变引用。
+- 引用必须总是有效的。
+
 # 1 变量
 
 ### 1.1 变量绑定
@@ -1040,9 +1072,8 @@ fn choose_first<'a: 'b, 'b>(first: &'a i32, _: &'b i32) ->&'b i32 {first}
 
 ```rust
 #[derive(Debug)]
-
 // - 可以自动派生的trait
-// 比较： Eq, PartialEq, Ord, PartialOrd
+// 比较相关的trait： Eq, PartialEq, Ord, PartialOrd
 // Clone 从&T 创建副本T
 // Copy  使类型具有“复制语义” 而非 “移动语义”
 // Hash  从&T计算哈希值hash
@@ -1062,6 +1093,8 @@ fn random_animal(random_number: f64) -> Box<dyn Animal> {
 ### 8.4 impl trait
 
 ### 8.5 组合 trait
+
+## 8.6 常见的trait
 
 ### drop
 
@@ -1096,35 +1129,58 @@ fn read_unsename_from_file() -> Result<String, io::Error> {
 }
 ```
 
-
-
 ### 9.3 Panic
 
-```rust
+```10 rust
 fn main() {
     panic!("xxx");
 }
 ```
 
-
-
-# 10 并发
-
-### 10.1 子进程
-
-```rust
-
-```
-
-### 10.2 多线程
+# 10 宏编程
 
 
 
-### 10.3 异步并发
+# 11  属性
+
+- [内置属性](https://rustwiki.org/zh-CN/reference/attributes.html#built-in-attributes-index)
+- [宏属性](https://rustwiki.org/zh-CN/reference/procedural-macros.html#attribute-macros)
+- [派生宏辅助属性](https://rustwiki.org/zh-CN/reference/procedural-macros.html#derive-macro-helper-attributes)
+- [外部工具属性](https://rustwiki.org/zh-CN/reference/attributes.html#tool-attributes)
+
+## 11.1 内置属性（重点）
+
+### 11.1.1 条件编译
+
+### 11.1.2 测试
+
+### 11.1.3 派生
+
+### 11.1.4 宏
+
+### 11.1.5 诊断
+
+### 11.1.6 ABI,链接,符号,FFI
+
+### 11.1.7 代码生成
+
+### 11.1.8 文档
+
+### 11.1.9 预导入包（preludes）
+
+### 11.1.10 模块
+
+### 11.1.11 特性
+
+### 11.1.12 极限设置
+
+### 11.1.13 运行时
+
+### 11.1.14 类型系统
 
 
 
-
+ 
 
 
 
