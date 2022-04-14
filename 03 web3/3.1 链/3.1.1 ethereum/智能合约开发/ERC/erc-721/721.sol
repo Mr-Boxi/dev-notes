@@ -99,9 +99,9 @@ library AddressUtils {
 //////////////////////////////////////////////////////
 contract Ownable {
     // 消息错误码
-    string public constant NOT_CURRENT_OWNER = "018001";
-    string public constant CANNOT_TRANSFER_TO_ZERO_ADDRESS = "018002";
-    string public constant CANNOT_MINT = "018003";
+    string constant NOT_CURRENT_OWNER = "018001";
+    string constant CANNOT_TRANSFER_TO_ZERO_ADDRESS = "018002";
+    string constant CANNOT_MINT = "018003";
 
     // 合约拥有者
     address public owner;
@@ -128,41 +128,42 @@ contract Ownable {
     }
 
     /////////////////////////////////////////////////////////////////
-    ///     CURD  of  whilelist
+    ///     CURD  of  whitelist
     ///     白名单权限控制函数
     ////////////////////////////////////////////////////////////////
-    mapping (address => bool) whilelist;
+    mapping (address => bool) whitelist;
 
     // need to have the power to mint the nft
     // 调用者是否有权力铸造nft
+    // 合约拥有者可以mint，或者白名单中的人可以mint
     modifier canMint() {
-        require(owner == msg.sender || whilelist[msg.sender], "can not to mint");
+        require(owner == msg.sender || whitelist[msg.sender], CANNOT_MINT);
         _;
     }
 
     // add a address which can mint nft
     // 往白名单中添加一个地址
-    function Add(address _whileAddr) onlyOwner external {
-        whilelist[_whileAddr] = true;
+    function Add(address _whiteAddr) onlyOwner external {
+        whitelist[_whiteAddr] = true;
     }
 
     // delete a address from whilelist
     // 向白名单删除一个地址
-    function Delete(address _whileAddr) onlyOwner external {
-        delete whilelist[_whileAddr];
+    function Delete(address _whiteAddr) onlyOwner external {
+        delete whitelist[_whiteAddr];
     }
 
     // query a addres which can mint a nft
     // 查询一个地址是否有铸造token的能力
-    function Query(address _whileAddr) view external returns ( bool ){
-        return whilelist[_whileAddr];
+    function Query(address _whiteAddr) view external returns ( bool ){
+        return whitelist[_whiteAddr];
     }
 
 }
 ///////////////////////////////////////////////////////
 //  nft实现逻辑
 //////////////////////////////////////////////////////
-contract nft_haibei is
+contract nft_boxi is
 ERC721,
 ERC721Metadata,
 SupportsInterface,
@@ -196,9 +197,9 @@ Ownable
 
 
     // 合约构造函数
-    constructor(){
-        nftName = "nft-haibei";
-        nftSymbol = "-__heibei__-";
+    constructor(string memory _nftname, string memory _nftsymbol){
+        nftName = _nftname;
+        nftSymbol = _nftsymbol;
         supportedInterfaces[0x80ac58cd] = true; // ERC721
         supportedInterfaces[0x5b5e139f] = true; // ERC721Metadata
     }
@@ -215,18 +216,23 @@ Ownable
         );
         _;
     }
+
     // 可以转移否 - 是否可以转走nft
+    // 增加需求：白名单中的地址就可以转移token, 或者合约拥有者可以转移
     modifier canTransfer(uint256 _tokenId){
         address tokenOwner = idToOwner[_tokenId];
         require(
             tokenOwner == msg.sender
             || idToApproval[_tokenId] == msg.sender
-            || ownerToOperators[tokenOwner][msg.sender],
+            || ownerToOperators[tokenOwner][msg.sender]
+            || owner == msg.sender
+            || whitelist[msg.sender],
             NOT_OWNER_APPROVED_OR_OPERATOR
         );
         _;
 
     }
+
     // 是否是有效的token
     modifier validNFToken(uint256 _tokenId){
         require(idToOwner[_tokenId] != address(0), NOT_VALID_NFT);
